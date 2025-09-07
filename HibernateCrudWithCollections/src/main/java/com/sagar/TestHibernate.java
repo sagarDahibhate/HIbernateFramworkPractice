@@ -21,8 +21,14 @@ public class TestHibernate {
 			st.setStdName("Ram");
 			st.getStdData().add("D1");
 			st.getStdData().add("D2");
-			session.save(st);
+			//session.save(st);
+			
+			Student student = session.get(Student.class, 1001);
+			if(student!=null) {
+				System.out.println("Student informated fetched is : "+student);
+			}
 
+			 // same as previous example we can update and delete the record 
 			transaction.commit();
 			session.close();
 			factory.close();
