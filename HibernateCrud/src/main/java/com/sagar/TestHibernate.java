@@ -35,9 +35,7 @@ public class TestHibernate {
 			fis.read(arr);
 			emp.setPic(arr);
 			
-			
-			
-		   session.update(emp);
+		   session.save(emp);
 		   transaction.commit();
 		   session.close();
 		   factory.close();
