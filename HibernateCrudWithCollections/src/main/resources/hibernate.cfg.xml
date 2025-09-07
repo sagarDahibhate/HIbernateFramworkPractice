@@ -20,5 +20,6 @@
 
         <!-- Mapping -->
         <mapping class="com.sagar.model.Student"/>
+        <mapping class="com.sagar.model.Customer"/>
     </session-factory>
 </hibernate-configuration>
