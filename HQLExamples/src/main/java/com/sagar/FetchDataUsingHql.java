@@ -26,6 +26,17 @@ public class FetchDataUsingHql {
 				System.out.println(s);
 			}
 
+			
+			
+			String hql2="select rollNo,name from com.sagar.model.Student";
+			Query q=session.createQuery(hql2);
+			List<Object[]>list2=q.list();
+			for(Object[]ob:list2)
+			{
+			System.out.println(ob[0]+","+ob[1]);
+			}
+
+			
 			transaction.commit();
 			session.close();
 			factory.close();
