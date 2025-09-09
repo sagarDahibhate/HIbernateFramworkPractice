@@ -28,8 +28,7 @@ public class FetchDataUsingHql {
 			for (Student s : list) {
 				System.out.println(s);
 			}
-			
-			
+
 			
 			// select  operation for fetching more than one column but not all columns of table.
 			String hql2 = "select rollNo,name from com.sagar.model.Student";
@@ -47,6 +46,21 @@ public class FetchDataUsingHql {
 			for(String s:list3) {
 				System.out.println("name of employees : "+s);
 			}
+			
+			
+			// Hibernate 6 ne positional parameters ka pura style change kar diya hai.
+			// Hibernate 6 me ?1 style hata diya gaya hai, ab sirf named parameters hi use karne padte hain.
+			
+			String hql4="from com.sagar.model.Student where rollNo=:roll or name=:name";
+			Query query4=session.createQuery(hql4);
+			query4.setParameter("roll", 101);
+			query4.setParameter("name", "sagar");
+			
+			List<Student> studList=query4.list();
+			for (Student s : studList) {
+				System.out.println(s);
+			}
+
 			
 			
 			transaction.commit();
