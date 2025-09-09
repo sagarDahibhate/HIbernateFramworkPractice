@@ -69,6 +69,25 @@ public class FetchDataUsingHql {
 			Student student = (Student) q2.uniqueResult();
 			System.out.println(student);
 
+			
+			
+			
+			
+			
+			String hql6 = "from com.sagar.model.Student where standard >:standard";
+			Query q3 = session.createQuery(hql6);
+			q3.setParameter("standard", 1);
+
+			List<Student> stdList = q3.list();
+
+			for (Student s : stdList) {
+			    System.out.println(s.getName());
+			}
+			
+			
+			
+			
+			
 			transaction.commit();
 			session.close();
 			factory.close();
