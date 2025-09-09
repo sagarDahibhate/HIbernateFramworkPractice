@@ -29,7 +29,7 @@ public class TestHibernate {
 	            List<Student> students = getStudentsByPage(session, pageNo, pageSize);
 	            System.out.println("\n--- Page " + pageNo + " ---");
 	            for (Student s : students) {
-	                System.out.println(s.getRollNo() + " - " + s.getName());
+	                System.out.println(s.getRollNo() + " - " + s.getName()+" - "+s.getStandard());
 	            }
 	        }
 
