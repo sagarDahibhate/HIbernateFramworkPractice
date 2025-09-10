@@ -14,7 +14,7 @@
         <property name="show_sql">true</property>
 
         <!-- Mapping -->
-        <mapping class="com.sagar.model.Person"/>
-        <mapping class="com.sagar.model.DrivingLicense"/>
+        <mapping class="com.sagar.model.Student"/>
+        <mapping class="com.sagar.model.LibraryManage"/>
     </session-factory>
 </hibernate-configuration>

@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 import com.sagar.model.LibraryManage;
 import com.sagar.model.Student;
 
-public class TestHibernate {
+public class FetchRecords {
 	public static void main(String[] args) {
 
 		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
@@ -17,14 +17,13 @@ public class TestHibernate {
 		try (Session session = factory.openSession()) {
 			Transaction transaction = session.beginTransaction();
 			
-			Student s1=new Student(1, "sagar", 10, null);
+			Student student = session.get(Student.class, Integer.valueOf(1));
 			
-			LibraryManage d1=new LibraryManage(11, "Monthly", s1);
-			s1.setLic(d1);
-			
-			session.saveOrUpdate(s1);
-			session.saveOrUpdate(d1);
-			
+			if(student!=null) {
+				System.out.println(student.getId()+" "+student.getName()+"  "+student.getStandard());
+				LibraryManage lic = student.getLic();
+				System.out.println(lic.getId()+" "+lic.getLibraryManage());
+			}
 		 
 			transaction.commit();
 			session.close();
