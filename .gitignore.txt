@@ -1,0 +1,19 @@
+# Maven build
+target/
+
+# Gradle build
+build/
+
+# IDE settings
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
