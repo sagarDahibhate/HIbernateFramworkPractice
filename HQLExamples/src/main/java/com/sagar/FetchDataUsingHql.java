@@ -21,6 +21,7 @@ public class FetchDataUsingHql {
 
 			// simiple select operation for fetching all columns data
 			String hql = "from com.sagar.model.Student";
+			
 			Query query = session.createQuery(hql);
 			List<Student> list = query.list();
 
@@ -70,10 +71,6 @@ public class FetchDataUsingHql {
 			System.out.println(student);
 
 			
-			
-			
-			
-			
 			String hql6 = "from com.sagar.model.Student where standard >:standard";
 			Query q3 = session.createQuery(hql6);
 			q3.setParameter("standard", 1);
@@ -83,10 +80,25 @@ public class FetchDataUsingHql {
 			for (Student s : stdList) {
 			    System.out.println(s.getName());
 			}
+
 			
 			
+	    /*  
+	        HQL NON=SELECT OPERATION:- HQL supports non-select operations like
+			a. Update multiple rows
+			b. Delete mulitiple rows copy rows from one table to another table (backup data )
 			
+			• Use method    executeUpdate():     int return no.of rows effected
+			• It supports both positional and named parameters.  
 			
+		*/
+			
+			String hql7 = "update com.sagar.model.Student set standard=:std  where standard=2";
+			Query q4 = session.createQuery(hql7);
+			q4.setParameter("std", 10);
+			int executeUpdate = q4.executeUpdate();
+			System.out.println(executeUpdate+" no of rows affected ");
+
 			
 			transaction.commit();
 			session.close();
